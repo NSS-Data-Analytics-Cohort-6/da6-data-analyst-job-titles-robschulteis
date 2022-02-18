@@ -20,4 +20,10 @@
 	-- 	WHERE location IS NOT NULL and star_rating IS NOT NULL
 	-- 	GROUP BY state
 	-- 	ORDER BY avg_rating DESC;
+
+-- 7) Select unique job titles from the data_analyst_jobs table. How many are there? 881
+	-- SELECT COUNT(DISTINCT title) FROM data_analyst_jobs;
+
+-- 8) How many unique job titles are there for California companies? 230
+	-- SELECT COUNT(DISTINCT title) FROM data_analyst_jobs WHERE location = 'CA';
 	
