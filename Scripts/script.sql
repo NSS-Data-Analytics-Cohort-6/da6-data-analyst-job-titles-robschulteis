@@ -13,7 +13,7 @@
 						-- ** 27 ** --
  -- ========================================================================================================
 	--SELECT Count(location) FROM data_analyst_jobs WHERE location = 'TN';
-	--SELECT Count(location) FROM data_analyst_jobs WHERE location = 'TN' OR location = 'KY';
+	--SELECT Count(location) FROM data_analyst_jobs WHERE location IN ('TN','KY');
  -- ========================================================================================================
 	
 -- 4) How many postings in Tennessee have a star rating above 4? 
