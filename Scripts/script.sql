@@ -29,7 +29,7 @@
 -- 6) Show the average star rating for companies in each state. The output should show the state as state and the average rating for the state as avg_rating. Which state shows the highest average rating? 
 						-- ** NE ** --
  -- ========================================================================================================
-	-- 	SELECT location AS state, AVG(star_rating) AS avg_rating FROM data_analyst_jobs
+	-- SELECT location AS state, AVG(star_rating) AS avg_rating FROM data_analyst_jobs
 	-- 	WHERE location IS NOT NULL and star_rating IS NOT NULL
 	-- 	GROUP BY state
 	-- 	ORDER BY avg_rating DESC;
@@ -47,27 +47,47 @@
 -- 9) Find the name of each company and its average star rating for all companies that have more than 5000 reviews across all locations. How many companies are there with more that 5000 reviews across all locations? 
 						-- ** 40 ** --
  -- ========================================================================================================
-	-- 	SELECT company, AVG(star_rating) AS avg_rating FROM data_analyst_jobs
-	-- 	WHERE company IS NOT NULL AND star_rating IS NOT NULL AND review_count > 5000
-	-- 	GROUP BY company;
+-- 		SELECT company, 
+-- 			AVG(star_rating) AS avg_rating 
+-- 		FROM data_analyst_jobs
+-- 			WHERE company 
+-- 				IS NOT NULL 
+-- 				AND star_rating 
+-- 				IS NOT NULL 
+-- 				AND review_count > 5000
+-- 		GROUP BY company;
  -- ========================================================================================================
-	--  SELECT COUNT(DISTINCT company) FROM data_analyst_jobs
-	--  WHERE company IS NOT NULL AND star_rating IS NOT NULL AND review_count > 5000;
+-- 	 SELECT COUNT(DISTINCT company) 
+-- 	 FROM data_analyst_jobs
+-- 	 WHERE company 
+-- 	 	IS NOT NULL 
+-- 	 	AND star_rating 
+-- 	 	IS NOT NULL 
+-- 	 	AND review_count > 5000;
  -- ========================================================================================================
 -- 10) Add the code to order the query in #9 from highest to lowest average star rating. Which company with more than 5000 reviews across all locations in the dataset has the highest star rating? What is that rating? 
 						-- ** Unilever 4.1999998090000000 ** __
 						-- (I am not confident about this query) ** --
  -- ========================================================================================================
-	-- 	SELECT company, AVG(star_rating) AS avg_rating FROM data_analyst_jobs
-	-- 	WHERE company IS NOT NULL AND star_rating IS NOT NULL AND review_count > 5000
-	-- 	GROUP BY company
-	-- 	ORDER BY avg_rating DESC;
+-- 		SELECT company, 
+-- 			AVG(star_rating) AS avg_rating 
+-- 		FROM data_analyst_jobs
+-- 		WHERE company 
+-- 			IS NOT NULL 
+-- 			AND star_rating 
+-- 			IS NOT NULL 
+-- 			AND review_count > 5000
+-- 		GROUP BY company
+-- 		ORDER BY avg_rating DESC;
  -- =========================================================================================================
 -- 11) Find all the job titles that contain the word ‘Analyst’. How many different job titles are there? 
 						-- ** 770 DISTINCT titles ** --
  -- =========================================================================================================
 	-- SELECT DISTINCT title FROM data_analyst_jobs WHERE lower(title) LIKE '%analyst%'; -- (774)
-	-- SELECT DISTINCT lower(title) FROM data_analyst_jobs WHERE lower(title) LIKE '%analyst%'; --(770)
+-- 	SELECT DISTINCT lower(title) 
+-- 	FROM data_analyst_jobs 
+-- 	WHERE lower(title) 
+-- 	LIKE '%analyst%'; --(770)
 	-- SELECT COUNT(DISTINCT title) FROM data_analyst_jobs WHERE lower(title) LIKE '%analyst%'; -- (774)
 	-- SELECT COUNT(DISTINCT lower(title)) FROM data_analyst_jobs WHERE lower(title) LIKE '%analyst%'; -- (770)
  -- =========================================================================================================
@@ -83,7 +103,15 @@
 -- Which three industries are in the top 4 on this list? How many jobs have been listed for more 
 -- than 3 weeks for each of the top 4?
  -- ========================================================================================================= 
-	-- 	SELECT domain, count(title) AS hard_to_fill FROM data_analyst_jobs WHERE skill LIKE '%SQL%' AND 			     days_since_posting > 21 AND domain IS NOT NULL 
-	-- 	GROUP BY domain ORDER BY hard_to_fill DESC;
+		SELECT domain, 
+			count(title) AS hard_to_fill 
+		FROM data_analyst_jobs 
+		WHERE skill 
+			LIKE '%SQL%' 
+			AND days_since_posting > 21 
+			AND domain 
+			IS NOT NULL 
+		GROUP BY domain 
+		ORDER BY hard_to_fill DESC;
  -- =========================================================================================================
 	
